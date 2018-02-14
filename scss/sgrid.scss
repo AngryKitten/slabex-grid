@@ -1,0 +1,183 @@
+$config: (
+  prefix: "slabex-",
+  min-row-height: 100,
+  max-row-span: 5,
+  num-columns: 9,
+  gutter: 5
+);
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@function get-next-breakpoint($current) {
+  $i: 0;
+  $current-index: false;
+  @each $name, $value in $breakpoints {
+    $i: $i + 1;
+    @if $name == $current {
+      $current-index: $i;
+    }
+    @if $i == $current-index + 1 {
+      @return $value;
+    }
+    @if $i == length($breakpoints) {
+      @return false;
+    }
+  }
+}
+
+$prefix: map-get($config, prefix);
+.#{$prefix}grid {
+  $column-compensation: 0;
+  @if map-get($config, gutter) != 0 {
+    $column-compensation: map-get($config, gutter) * (map-get($config, num-columns) - 1) / map-get($config, num-columns);
+  }
+  display: grid;
+  grid-auto-rows: minmax(#{map-get($config, min-row-height)}px, auto);
+  grid-template-columns: repeat(map-get($config, num-columns), calc(100% / #{map-get($config, num-columns)} - #{$column-compensation}px));
+  grid-row-gap: #{map-get($config, gutter)}px;
+  grid-column-gap: #{map-get($config, gutter)}px;
+  @for $i from 1 through map-get($config, max-row-span) {
+    .#{$prefix}row-span-#{$i} {
+      grid-row-end: span $i;
+    }
+  }
+  @for $i from 1 through map-get($config, num-columns) {
+    .#{$prefix}col-#{$i} {
+      grid-column-end: span $i;
+    }
+  }
+  [class^="#{$prefix}col-"], [class*=" #{$prefix}col-"] {
+    box-sizing: border-box;
+    grid-row-start: auto;
+    grid-column-start: auto;
+  }
+  .#{$prefix}col-full {
+    grid-column-end: span map-get($config, num-columns);
+  }
+  [class^="#{$prefix}content-"], [class*=" #{$prefix}content-"] {
+    display: flex;
+  }
+  .#{$prefix}content-vertical {
+    flex-direction: column;
+  }
+  .#{$prefix}content-top {
+    &:not(.#{$prefix}content-vertical) {
+      align-items: flex-start;
+    }
+    &.#{$prefix}content-vertical {
+      justify-content: flex-start;
+    }
+  }
+  .#{$prefix}content-right {
+    &:not(.#{$prefix}content-vertical) {
+      justify-content: flex-end;
+    }
+    &.#{$prefix}content-vertical {
+      align-items: flex-end;
+    }
+  }
+  .#{$prefix}content-bottom {
+    &:not(.#{$prefix}content-vertical) {
+      align-items: flex-end;
+    }
+    &.#{$prefix}content-vertical {
+      justify-content: flex-end;
+    }
+  }
+  .#{$prefix}content-left {
+    &:not(.#{$prefix}content-vertical) {
+      justify-content: flex-start;
+    }
+    &.#{$prefix}content-vertical {
+      align-items: flex-start;
+    }
+  }
+  .#{$prefix}content-center {
+    &.#{$prefix}content-top, &.#{$prefix}content-bottom {
+      &:not(.#{$prefix}content-vertical) {
+        justify-content: center;
+      }
+      &.#{$prefix}content-vertical {
+        align-items: center;
+      }
+    }
+    &.#{$prefix}content-right, &.#{$prefix}content-left {
+      &:not(.#{$prefix}content-vertical) {
+        align-items: center;
+      }
+      &.#{$prefix}content-vertical {
+        justify-content: center;
+      }
+    }
+    &:not(.#{$prefix}content-top):not(.#{$prefix}content-right):not(.#{$prefix}content-bottom):not(.#{$prefix}content-left) {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .#{$prefix}content-center-horizontal {
+    &:not(.#{$prefix}content-vertical) {
+      justify-content: center;
+    }
+    &.#{$prefix}content-vertical {
+      align-items: center;
+    }
+  }
+  .#{$prefix}content-center-vertical {
+    &:not(.s#{$prefix}ontent-vertical) {
+      align-items: center;
+    }
+    &.#{$prefix}content-vertical {
+      justify-content: center;
+    }
+  }
+  @each $name, $value in $breakpoints {
+    @media (min-width: $value) {
+      @if $value > 0 {
+        @for $i from 1 through map-get($config, max-row-span) {
+          .#{$prefix}row-#{$name}-span-#{$i} {
+            grid-row-end: span $i;
+          }
+        }
+        @for $i from 1 through map-get($config, num-columns) {
+          .#{$prefix}col-#{$name}-#{$i} {
+            grid-column-end: span $i;
+          }
+        }
+        .#{$prefix}col-#{$name}-full {
+          grid-column-end: span map-get($config, num-columns);
+        }
+      }
+      .#{$prefix}hidden-#{$name}-up {
+        display: none;
+      }
+      .#{$prefix}visible-#{$name}-up {
+        display: flex;
+      }
+    }
+    $next-breakpoint: get-next-breakpoint($name);
+    @if $next-breakpoint {
+      @media (max-width: $next-breakpoint - 1px) {
+        .#{$prefix}hidden-#{$name}-down {
+          display: none;
+        }
+        .#{$prefix}visible-#{$name}-down {
+          display: flex;
+        }
+      }
+    }
+    @if $next-breakpoint == false {
+      .#{$prefix}hidden-#{$name}-down {
+        display: none;
+      }
+      .#{$prefix}visible-#{$name}-down {
+        display: flex;
+      }
+    }
+  }
+}

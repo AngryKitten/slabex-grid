@@ -1,0 +1,10 @@
+Slabex-Grid
+
+To run on your machine:
+
+1. Clone repo
+2. Run 'npm install'
+3. Open terminal in repo location and run 'npm run compile-css'
+
+That will set up the files on your machine so you can take a look.
+If you want to play around with the config options or add some of your own code, run 'npm run watch-css' and it will auto-compile your sass into css on save.

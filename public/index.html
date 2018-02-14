@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SGrid</title>
+  <link rel="stylesheet" href="css/sgrid.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="slabex-grid side-padding">
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h1 class="primary">Welcome to SGrid</h1>
+        <p>SGrid was built using css-grid and flex-box and is thus as extensive or limited as current CSS standards allow.</p>
+        <p>Already know what you want? Visit the <a href="gridbuilder.html">Grid Builder</a> to customize and download the grid.</p>
+        <p>
+          You have some configuration options at your disposal so you can customize the grid to fit your needs.
+          <ul>
+            <li>
+              <span class="larger">prefix</span>: This will be added to the beginning of each SGrid class to differentiate.<br>
+              <ul><li class="primary">For this example we are using 'slabex'</li></ul>
+            </li>
+            <li>
+              <span class="larger">min-row-height</span>: This sets the default height of a row in pixels which will grow to fit the content.<br>
+              <ul><li class="primary">For this example we are using '100'</li></ul>
+            </li>
+            <li>
+              <span class="larger">max-row-span</span>: Since rows are added dynamically, this is defines the maximum rows you can span.<br>
+              <ul><li class="primary">For this example we are using '5'</li></ul>
+            </li>
+            <li>
+              <span class="larger">num-columns</span>: This is how you define the number of columns your grid will be.<br>
+              <ul><li class="primary">For this example we are using '9'</li></ul>
+            </li>
+            <li>
+              <span class="larger">gutter</span>: You can set the amount of space to have between rows and columns in pixels.<br>
+              <ul><li class="primary">For this example we are using '5'</li></ul>
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <!--
+      Section: Usage
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h2 class="primary">Usage</h2>
+        <p>
+          To define a section of your html as an SGrid, you will need to put the class <span class="larger">&lt;prefix&gt;-grid</span> onto the parent element.<br>
+          All classes within SGrid, if no prefix is chosen, can be accessed by using the prefixless class name, such as 'grid' in this case.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">...cell definitions</div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <!--
+      Section: Columns
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary pull-down">Spanning Columns</h4>
+        <p>
+          You define cells by adding the class
+          <span class="larger">slabex-col-&lt;number&gt;</span> with &lt;number&gt;
+          being number of columns you want the cell to span.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-3"&gt;
+          <div class="indent">This cell spans 3 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-2"&gt;
+          <div class="indent">This cell spans 2 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-4"&gt;
+          <div class="indent">This cell spans 4 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-3 highlight">
+      <span>This cell spans 3 columns.</span>
+    </div>
+    <div class="slabex-col-2 highlight">
+      <span>This cell spans 2 columns.</span>
+    </div>
+    <div class="slabex-col-4 highlight">
+      <span>This cell spans 4 columns.</span>
+    </div>
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <p>You can also use the class <span class="larger">slabex-col-full</span> to fit a cell to the maximum number of columns.</p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-full"&gt;
+          <div class="indent">In our case, this is the same as using 'slabex-col-9'.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-full highlight">
+      <span>In our case, this is the same as using 'slabex-col-9'.</span>
+    </div>
+    <!--
+      Section: Rows
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary pull-down">Spanning Rows</h4>
+        <p>
+          In addition to spanning columns, you can also span rows by adding the class
+          <span class="larger">slabex-row-span-&lt;number&gt;</span> with &lt;number&gt;
+          being the number of rows you want the cell to span.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-4"&gt;
+          <div class="indent">This cell spans 4 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-2 slabex-row-span-2"&gt;
+          <div class="indent">This cell spans 2 columns and 2 rows.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3"&gt;
+          <div class="indent">This cell spans 3 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-4"&gt;
+          <div class="indent">This cell spans 4 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3"&gt;
+          <div class="indent">This cell spans 3 columns.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-4 highlight">
+      <span>This cell spans 4 columns.</span>
+    </div>
+    <div class="slabex-col-2 slabex-row-span-2 highlight">
+      <span>This cell spans 2 columns and 2 rows.</span>
+    </div>
+    <div class="slabex-col-3 highlight">
+      <span>This cell spans 3 columns.</span>
+    </div>
+    <div class="slabex-col-4 highlight">
+      <span>This cell spans 4 columns.</span>
+    </div>
+    <div class="slabex-col-3 highlight">
+      <span>This cell spans 3 columns.</span>
+    </div>
+    <!--
+      Section: Content Alignment
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary pull-down">Aligning Cell Content</h4>
+        <p>
+          Cell content is positioned using flex-box so there are quite a few ways you can do positioning.<br>
+          5 main classes are provided for your usage.
+          <ol>
+            <li><span class="larger">slabex-content-top</span>: Aligns content to the top.</li>
+            <li><span class="larger">slabex-content-right</span>: Aligns content to the right.</li>
+            <li><span class="larger">slabex-content-bottom</span>: Aligns content to the bottom.</li>
+            <li><span class="larger">slabex-content-left</span>: Aligns content to the left.</li>
+            <li>
+              <span class="larger">slabex-content-center</span>: Aligns content to the center of both axes
+              <ul>
+                <li>If used in conjunction with slabex-content-top/right/bottom/left it will automatically center on the unspecified axis.</li>
+                <li>You can center on a specific axis by using <span class="larger">slabex-content-center-horizontal</span> and <span class="larger">slabex-content-center-vertical</span></li>
+              </ul>
+            </li>
+          </ol>
+          By default the content will stack horizontally. If this doesn't fit your needs, you can add <span class="larger">slabex-content-vertical</span> to stack cell children vertically.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-content-top slabex-content-right"&gt;
+          <div class="indent">Aligned to the top right.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-content-bottom slabex-content-center"&gt;
+          <div class="indent">Aligned to the bottom center.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-content-center"&gt;
+          <div class="indent">Aligned to the center.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-3 highlight slabex-content-top slabex-content-right">
+      <span class="squash outline">Aligned to the top right.</span>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-3 highlight slabex-content-bottom slabex-content-center">
+      <span class="squash outline">Aligned to the bottom center.</span>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-3 highlight slabex-content-center">
+      <span class="squash outline">Aligned to the center.</span>
+    </div>
+    <!--
+      Section: Adaptive Design
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary pull-down">Adaptive Design</h4>
+        <p>
+          SGrid has support for adaptive design as well.<br>
+          By default it uses the 5 most commonly seen breakpoints.<br>
+          Each of these breakpoint names and values are completely customizable.
+          <ul>
+            <li><span class="larger">xs</span>: 0px</li>
+            <li><span class="larger">sm</span>: 576px</li>
+            <li><span class="larger">md</span>: 768px</li>
+            <li><span class="larger">lg</span>: 992px</li>
+            <li><span class="larger">xl</span>: 1200px</li>
+          </ul>
+        </p>
+        <p>
+          These breakpoints can be used in the same way you add regular column classes.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-4 slabex-col-sm-3"&gt;&lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-2 slabex-row-span-2 slabex-col-sm-3 slabex-row-sm-span-1"&gt;
+          <div class="indent">Remember you can also change the number of rows to span.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3"&gt;
+          <div class="indent">If you want an offset, you can create an empty cell.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-4 slabex-col-sm-6 slabex-col-lg-5"&gt;
+          <div class="indent">Column classes without breakpoints apply from 0px to the first defined breakpoint.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3 slabex-col-lg-4"&gt;
+          <div class="indent">slabex-col-3 slabex-col-lg-4</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-4 slabex-col-sm-3 highlight">
+      <span></span>
+    </div>
+    <div class="slabex-col-2 slabex-row-span-2 slabex-col-sm-3 slabex-row-sm-span-1 highlight">
+      <span>Remember you can also change the number of rows to span.</span>
+    </div>
+    <div class="slabex-col-3 highlight">
+      <span>If you want an offset, you can create an empty cell.</span>
+    </div>
+    <div class="slabex-col-4 slabex-col-sm-6 slabex-col-lg-5 highlight">
+      <span>Column classes without breakpoints apply from 0px to the first defined breakpoint.</span>
+    </div>
+    <div class="slabex-col-3 slabex-col-lg-4 highlight">
+      <span>slabex-col-3 slabex-col-lg-4</span>
+    </div>
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <p>
+          It is also possible to hide or show a cell based on these breakpoints.<br>
+          You can choose which direction to cascade the visibility by either specifying 'up' or 'down'.
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-5 slabex-col-md-3"&gt;
+          <div class="indent">slabex-col-5 slabex-col-md-3</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-4 slabex-hidden-md-up"&gt;
+          <div class="indent">This is hidden on medium screens and higher.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-6 slabex-hidden-sm-down"&gt;
+          <div class="indent">This is hidden on small screens and lower.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-5 slabex-col-md-3 highlight">
+      <span>slabex-col-5 slabex-col-md-3</span>
+    </div>
+    <div class="slabex-col-4 slabex-hidden-md-up highlight">
+      <span>This is hidden on medium screens and higher.</span>
+    </div>
+    <div class="slabex-col-6 slabex-hidden-sm-down highlight">
+      <span>This is hidden on small screens and lower.</span>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-4 slabex-col-sm-3 slabex-col-md-4 slabex-col-xl-3"&gt;
+          <div class="indent">Other cells will need customization to fit the extra space.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3 slabex-hidden-xs-down slabex-hidden-md-up slabex-visible-xl-up"&gt;
+          <div class="indent">This is visible on small and extra large screens..</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-5 slabex-col-sm-3 slabex-col-md-5 slabex-col-xl-3"&gt;
+          <div class="indent">slabex-col-5 slabex-col-sm-3 slabex-col-md-5 slabex-col-xl-3</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-4 slabex-col-sm-3 slabex-col-md-4 slabex-col-xl-3 highlight">
+      <span>Other cells will need customization to fit the extra space.</span>
+    </div>
+    <div class="slabex-col-3 slabex-hidden-xs-down slabex-hidden-md-up slabex-visible-xl-up highlight">
+      <span>This is visible on small and extra large screens.</span>
+    </div>
+    <div class="slabex-col-5 slabex-col-sm-3 slabex-col-md-5 slabex-col-xl-3 highlight">
+      <span>slabex-col-5 slabex-col-sm-3 slabex-col-md-5 slabex-col-xl-3</span>
+    </div>
+    <!--
+      Section: Downloads
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h2 class="primary pull-down">Downloads</h2>
+        <p>
+          Like what you see?<br>
+          There are two versions of SGrid available, a precompiled version and a compiled version.<br>
+          The precompiled version allows you to make any configurations to the grid you want but must be compiled before usage.<br>
+          The compiled version can't be configured from the default but doesn't require any compilation in order to use it.<br>
+          These are the default configurations:
+        </p>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>$config: (</div>
+        <div class="indent">prefix: "slabex-",</div>
+        <div class="indent">min-row-height: 50,</div>
+        <div class="indent">max-row-span: 12,</div>
+        <div class="indent">num-columns: 12,</div>
+        <div class="indent">gutter: 5</div>
+        <div>);</div>
+      </div>
+    </div>
+    <div class="slabex-col-full">
+      <div class="full">
+        <p>
+          If you're ready to use SGrid, <a href="default/sgrid.scss" download>here is the precompiled version</a> in .scss format.<br>
+          You can get the no-hassle, already compiled, default values version of the grid <a href="default/sgrid.css" download>here</a>.<br>
+          And lastly, if you don't want to deal with compiling but what to costumize the grid for your needs, visit the <a href="gridbuilder.html">Grid Builder</a>!
+        </p>
+      </div>
+    </div>
+    <!--
+      Section: Examples
+    -->
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h2 class="primary pull-down">More Examples</h2>
+      </div>
+    </div>
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary">Layout with a sidebar on each side of the main content</h4>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-3 slabex-col-lg-2 slabex-hidden-xs-down"&gt;
+          <div class="indent">Left Sidebar - This section is hidden on extra small screens and lower.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-9 slabex-col-sm-6 slabex-col-lg-5"&gt;
+          <div class="indent">Main Content - This section is always visible.</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-2 slabex-hidden-md-down"&gt;
+          <div class="indent">Right Sidebar - This section is hidden on medium screens and lower.</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-3 slabex-col-lg-2 slabex-hidden-xs-down highlight">Left Sidebar - This section is hidden on extra small screens and lower.</div>
+    <div class="slabex-col-9 slabex-col-sm-6 slabex-col-lg-5 highlight">Main Content - This section is always visible.</div>
+    <div class="slabex-col-2 slabex-hidden-md-down highlight">Right Sidebar - This section is hidden on medium screens and lower.</div>
+    <div class="slabex-col-full slabex-content-bottom">
+      <div class="full">
+        <h4 class="primary">Layout with header and footer</h4>
+      </div>
+    </div>
+    <div class="slabex-col-full code-block">
+      <div class="full">
+        <div>&lt;div class="slabex-grid"&gt;</div>
+        <div class="indent">
+          &lt;div class="slabex-col-full slabex-content-bottom slabex-content-center"&gt;
+          <div class="indent">Header</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-full slabex-row-span-3 slabex-col-sm-6 slabex-col-md-7"&gt;
+          <div class="indent">Main Content</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3 slabex-row-span-2 slabex-col-md-2 slabex-hidden-xs-down"&gt;
+          <div class="indent">Sidebar</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-3 slabex-col-md-2 slabex-hidden-xs-down"&gt;
+          <div class="indent">Secondary Sidebar</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-full slabex-content-center-horizontal slabex-hidden-sm-down"&gt;
+          <div class="indent">Secondary Footer</div>
+          &lt;/div&gt;
+        </div>
+        <div class="indent">
+          &lt;div class="slabex-col-full slabex-content-center"&gt;
+          <div class="indent">Footer</div>
+          &lt;/div&gt;
+        </div>
+        <div>&lt;/div&gt;</div>
+      </div>
+    </div>
+    <div class="slabex-col-full slabex-content-bottom slabex-content-center highlight">Header</div>
+    <div class="slabex-col-full slabex-row-span-3 slabex-col-sm-6 slabex-col-md-7 highlight">Main Content</div>
+    <div class="slabex-col-3 slabex-row-span-2 slabex-col-md-2 slabex-hidden-xs-down highlight">Sidebar</div>
+    <div class="slabex-col-3 slabex-col-md-2 slabex-hidden-xs-down highlight">Secondary Sidebar</div>
+    <div class="slabex-col-full slabex-content-center-horizontal slabex-hidden-sm-down highlight">Secondary Footer</div>
+    <div class="slabex-col-full slabex-content-center-horizontal highlight">Footer</div>
+  </div>
+</body>
+
+</html>

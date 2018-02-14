@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SGrid | Grid Builder</title>
+  <link rel="stylesheet" href="css/sgrid.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="slabex-grid side-padding">
+    <div class="slabex-col-full slabex-content-bottom slabex-content-center">
+      <h1 class="primary">Grid Builder</h1>
+    </div>
+    <div class="slabex-col-2 slabex-row-span-5 hidden-xs-down"></div>
+    <div class="slabex-col-full slabex-col-sm-5 slabex-content-vertical highlight">
+      <div class="gridbuilder-item primary larger">Prefix</div>
+      <input type="text" id="prefix" placeholder="prefix" class="gridbuilder-item">
+      <div class="gridbuilder-description">This will prefix all SGrid class names to differentiate.</div>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-5 slabex-content-vertical highlight">
+      <div class="gridbuilder-item primary larger">Minimum Row Height</div>
+      <input type="text" id="min-row-height" placeholder="min-row-height" class="gridbuilder-item">
+      <div class="gridbuilder-description">This defines the smallest height in pixels a row of cells can have. If the content of a cell extends past this value the row will grow to compensate.</div>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-5 slabex-content-vertical highlight">
+      <div class="gridbuilder-item primary larger">Max Row Span</div>
+      <input type="text" id="max-row-span" placeholder="max-row-span" class="gridbuilder-item">
+      <div class="gridbuilder-description">Since row creation is dynamic, this defines the maximum number of rows you will need to have a cell span.</div>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-5 slabex-content-vertical highlight">
+      <div class="gridbuilder-item primary larger">Number of Grid Columns</div>
+      <input type="text" id="num-columns" placeholder="num-columns" class="gridbuilder-item">
+      <div class="gridbuilder-description">This defines the number of columns each row of the grid will have.</div>
+    </div>
+    <div class="slabex-col-full slabex-col-sm-5 slabex-content-vertical highlight">
+      <div class="gridbuilder-item primary larger">Gutter</div>
+      <input type="text" id="gutter" placeholder="gutter" class="gridbuilder-item">
+      <div class="gridbuilder-description">This is the space between each individual cell in pixels.</div>
+    </div>
+    <div class="slabex-col-full slabex-content-center-horizontal">
+      <button onclick="download()">Create & Download</button>
+      <button onclick="window.location = '../'">Back</button>
+    </div>
+  </div>
+  <script src="gridbuilder.js" type="text/javascript"></script>
+</body>
+
+</html>

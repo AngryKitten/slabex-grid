@@ -1,0 +1,21 @@
+{
+  "name": "slabex-grid",
+  "version": "1.0.0",
+  "description": "A dynamically generated grid system built using CSS grid.",
+  "main": "index.js",
+  "scripts": {
+    "compile-default": "./node_modules/.bin/node-sass default/sgrid.scss default/sgrid.css",
+    "compile-css": "./node_modules/.bin/node-sass scss/sgrid.scss public/css/sgrid.css",
+    "watch-css": "./node_modules/.bin/node-sass -w scss/sgrid.scss public/css/sgrid.css",
+    "serve-stay": "node server.js >> output.log 2>> errors.log &"
+  },
+  "author": "Slab",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}
