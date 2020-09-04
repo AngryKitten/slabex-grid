@@ -12,7 +12,7 @@
   "author": "Slab",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.13.1"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
